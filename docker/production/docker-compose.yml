@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build:
-      context: https://github.com/bloxberg-org/bloxberg-world-map-editor.git#production:web
+      context: https://github.com/MPDL/hatnote-gis.git#production:web
       dockerfile: Dockerfile
       target: prod
     ports:
@@ -14,7 +14,7 @@ services:
         condition: service_started
   api:
     build:
-      context: https://github.com/bloxberg-org/bloxberg-world-map-editor.git#production:api
+      context: https://github.com/MPDL/hatnote-gis.git#production:api
       dockerfile: Dockerfile
     environment:
       - LOG_ABS_PATH=$LOG_ABS_PATH
