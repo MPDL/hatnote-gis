@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: https://github.com/bloxberg-org/bloxberg-world-map-editor.git#production:web
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "3002:3000"
+    restart: always
+    depends_on:
+      api:
+        condition: service_started
+  api:
+    build:
+      context: https://github.com/bloxberg-org/bloxberg-world-map-editor.git#production:api
+      dockerfile: Dockerfile
+    environment:
+      - LOG_ABS_PATH=$LOG_ABS_PATH
+      - APP_ENVIRONMENT=$APP_ENVIRONMENT
+      - APP_ENVIRONMENT_FILE_DIR=$APP_ENVIRONMENT_FILE_DIR
+    ports:
+      - "8282:8080"
+    restart: always
+    volumes:
+      - ./data:/app/data
