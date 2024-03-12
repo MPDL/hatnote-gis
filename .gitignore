@@ -23,7 +23,8 @@ yarn-error.log*
 # my stuff
 .idea
 api/.env.dev.yml
-api/bloxberg-map-validators.json
+api/geo-bloxberg-validators.json
+api/geo-mpg-institutes.json
 api/editor.log
 web/dist
 web/node_modules

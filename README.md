@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://hatnote.mpdl.mpg.de/bloxberg-world-map-editor/">
-    Bloxberg world map editor
+    Geographical information system for MPDL hatnote
   </a>
 </h1>
 
