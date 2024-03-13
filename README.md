@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://hatnote.mpdl.mpg.de/bloxberg-world-map-editor/">
+  <a href="https://hatnote.mpdl.mpg.de/gis">
     Geographical information system for MPDL hatnote
   </a>
 </h1>
