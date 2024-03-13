@@ -23,7 +23,7 @@ const common = (env) => {
         plugins: [
             new Dotenv({
                 defaults: './.env.defaults',
-                path: './.env.' + env.BLOXBERG_MAP_EDITOR_ENV
+                path: './.env.' + env.HATNOTE_GIS_ENV
             }),
         ],
         resolve: {
@@ -97,7 +97,7 @@ const frontend = (env) => {
             }),
             new Dotenv({
                 defaults: './.env.defaults',
-                path: './.env.' + env.BLOXBERG_MAP_EDITOR_ENV
+                path: './.env.' + env.HATNOTE_GIS_ENV
             }),
         ],
         output: {
@@ -112,13 +112,13 @@ const frontend = (env) => {
 }
 
 const getBasePath = (env) => {
-    switch (env.BLOXBERG_MAP_EDITOR_ENV) {
+    switch (env.HATNOTE_GIS_ENV) {
         case 'production':
-            return '/bloxberg-world-map-editor/'
+            return '/gis/'
         case 'development.local':
             return '/'
         case 'staging':
-            return '/bloxberg-world-map-editor/staging/'
+            return '/gis/staging/'
         default:
             return '/'
     }
