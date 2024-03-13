@@ -84,12 +84,12 @@ const frontend = (env) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                title: "Bloxberg world map editor",
+                title: "Hatnote Geographical Information System",
                 favicon: "./public/favicon.ico",
                 meta: {
-                    title: "Bloxberg world map editor",
-                    description: "Editor to manage the mapping of the bloxberg validators to their world locations.",
-                    keywords: "bloxberg, worldmap, crud",
+                    title: "Hatnote Geographical Information System",
+                    description: "Editor to manage geographical information for MPDL hatnote.",
+                    keywords: "gis, crud",
                     author: "Felix Riehm",
                     'theme-color': "#1c2733"
                 },
@@ -114,11 +114,11 @@ const frontend = (env) => {
 const getBasePath = (env) => {
     switch (env.HATNOTE_GIS_ENV) {
         case 'production':
-            return '/gis/'
+            return '/'
         case 'development.local':
             return '/'
         case 'staging':
-            return '/gis/staging/'
+            return '/staging/'
         default:
             return '/'
     }
