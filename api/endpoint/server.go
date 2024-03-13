@@ -11,7 +11,7 @@ func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Header("Access-Control-Allow-Origin", "*")
 		c.Header("Access-Control-Allow-Credentials", "true")
-		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, map-editor-api-password")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, hatnote-gis-api-password")
 		c.Header("Access-Control-Allow-Methods", "POST,HEAD,PATCH, OPTIONS, GET, PUT")
 
 		if c.Request.Method == "OPTIONS" {
@@ -27,7 +27,7 @@ func StartHttpServer(mapValidatorsStorePath string, mapInstitutesStorePath strin
 	router.Use(CORSMiddleware())
 
 	router.GET("/geoBloxbergValidators", func(c *gin.Context) {
-		provided_api_password := c.GetHeader("map-editor-api-password")
+		provided_api_password := c.GetHeader("hatnote-gis-api-password")
 
 		if provided_api_password != api_password {
 			log.Info("Access to GET /geoBloxbergValidators denied: wrong password.")
@@ -44,7 +44,7 @@ func StartHttpServer(mapValidatorsStorePath string, mapInstitutesStorePath strin
 	})
 
 	router.GET("/geoMpgInstitutes", func(c *gin.Context) {
-		provided_api_password := c.GetHeader("map-editor-api-password")
+		provided_api_password := c.GetHeader("hatnote-gis-api-password")
 
 		if provided_api_password != api_password {
 			log.Info("Access to GET /geoMpgInstitutes denied: wrong password.")
@@ -61,9 +61,9 @@ func StartHttpServer(mapValidatorsStorePath string, mapInstitutesStorePath strin
 	})
 
 	router.POST("/geoBloxbergValidators", func(c *gin.Context) {
-		provided_api_password := c.GetHeader("map-editor-api-password")
+		provided_api_password := c.GetHeader("hatnote-gis-api-password")
 		if provided_api_password != api_password {
-			log.Info("Access to POST /bloxbergMapValidators denied: wrong password.")
+			log.Info("Access to POST /geoBloxbergValidators denied: wrong password.")
 			c.IndentedJSON(http.StatusUnauthorized, make([]MapItem, 0))
 		} else {
 			var validators []MapItem
@@ -85,7 +85,7 @@ func StartHttpServer(mapValidatorsStorePath string, mapInstitutesStorePath strin
 	})
 
 	router.POST("/geoMpgInstitutes", func(c *gin.Context) {
-		provided_api_password := c.GetHeader("map-editor-api-password")
+		provided_api_password := c.GetHeader("hatnote-gis-api-password")
 		if provided_api_password != api_password {
 			log.Info("Access to POST /geoMpgInstitutes denied: wrong password.")
 			c.IndentedJSON(http.StatusUnauthorized, make([]MapItem, 0))

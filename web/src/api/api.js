@@ -7,7 +7,7 @@ export async function uploadValidators(data, password){
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'map-editor-api-password': password
+                'hatnote-gis-api-password': password
             },
             body: JSON.stringify(data)
         });
@@ -26,7 +26,7 @@ export async function getValidators(password){
         const rawResponse = await fetch(environmentVariables.server_url + '/geoBloxbergValidators', {
             method: 'GET',
             headers: {
-                'map-editor-api-password': password
+                'hatnote-gis-api-password': password
             },
         });
 
@@ -47,7 +47,7 @@ export async function uploadInstitutes(data, password){
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'map-editor-api-password': password
+                'hatnote-gis-api-password': password
             },
             body: JSON.stringify(data)
         });
@@ -66,7 +66,7 @@ export async function getInstitutes(password){
         const rawResponse = await fetch(environmentVariables.server_url + '/geoMpgInstitutes', {
             method: 'GET',
             headers: {
-                'map-editor-api-password': password
+                'hatnote-gis-api-password': password
             },
         });
 
